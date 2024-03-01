@@ -1,0 +1,35 @@
+/* style.css */
+.container {
+    display: flex;
+  }
+  
+  .left-box {
+    flex: 2; /* takes 1/3 of the space */
+    background-color: yellow;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .right-box {
+    flex: 2; /* takes 2/3 of the space */
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+  
+  .box {
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+    background-color: lightyellow;
+  }
+  
+  .input-box {
+    background-color: lightblue;
+  }
+  
+  button {
+    display: block;
+    margin-top: 10px;
+  }
+  
