@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page 3</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style_page3.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="left-box">
+      <!-- PDF Viewer -->
+      <iframe src="{{ url_for('serve_pdf', filename=pdf_filename) }}" width="100%" height="100%" type="application/pdf"></iframe>
+    </div>
+    <div class="right-box">
+      <!-- Description Box -->
+      <div class="description-box">
+        {{ description }} <!-- This will be passed from the backend -->
+      </div>
+      <!-- Answers Box (LLM output) -->
+      <div class="answers-box">
+        <p>(Only LLM output) Answers for each of the 'What' questions from the Section or body of the PDF:</p>
+        <ul>
+          <li>Question 1: {{ answer1 }}</li>
+          <li>Question 2: {{ answer2 }}</li>
+          <li>Question 5: {{ answer5 }}</li>
+        </ul>
+      </div>
+      <!-- Input fields for remaining questions -->
+      <div class="input-fields">
+        <form action="{{ url_for('handle_answers') }}" method="post">
+          {% for question in questions %}
+            <label for="question_{{ loop.index }}">{{ question }}:</label>
+            <input type="text" id="question_{{ loop.index }}" name="question_{{ loop.index }}">
+          {% endfor %}
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

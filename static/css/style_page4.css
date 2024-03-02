@@ -1,0 +1,92 @@
+/* style_page4.css */
+body, html {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: auto; 
+  }
+  
+  .column {
+    /* flex: 1; */
+    padding: 10px;
+  }
+  
+  .pdf-viewer {
+    background-color: yellow; /* Example color */
+  }
+  
+  /* .description-column, .feedback-column {
+  }
+   */
+  .title, .description-box, .code-box, .diagram-box {
+    margin-bottom: 10px;
+  }
+  
+  .description-box, .code-box {
+    background-color: #ffff99; /* Light yellow background */
+    padding: 10px;
+    max-height: 200px;
+    overflow: scroll;
+  }
+
+  .code-box > pre {
+    background-color: #c4c4c4;
+    line-height: 2em;
+  }
+  
+  .diagram-box {
+    background-color: #fff; /* White background */
+    text-align: center; /* Center the diagram image */
+    overflow: scroll;
+    max-height: 400px;
+  }
+  
+  .feedback-input {
+    margin-bottom: 10px;
+  }
+  
+  .feedback-input input[type="text"] {
+    width: 100%; /* Make input take full width */
+    padding: 5px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .action-buttons button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Add more specific styles as per your design requirements */
+  .diagram-box {
+    /* overflow: hidden; */
+  }
+  
+  .diagram-box img {
+    height: auto; /* Maintain aspect ratio */
+    /* max-width: 100%; Ensures image is not bigger than its container */
+    transition: transform 0.25s ease; /* Smooth transformation */
+    cursor: pointer; /* Indicates the image can be interacted with */
+    max-width: 300px;
+  }
+  
+  /* Style for zoom-in and zoom-out icons/buttons if needed */
+  .zoom-control {
+    z-index: 999;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px;
+    background-color: #ddd;
+    display: inline-block;
+    font-size: 20px;
+  }

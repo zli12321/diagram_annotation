@@ -8,44 +8,20 @@
 <body>
   <div class="container">
     <div class="left-box">
-      <iframe src="{{ url_for('serve_pdf', filename=pdf_filename) }}" width="100%" height="600px" type="application/pdf"></iframe>
+      <!-- PDF Viewer -->
+      <iframe src="{{ url_for('serve_pdf', filename=pdf_filename) }}" width="100%" height="100%" type="application/pdf"></iframe>
     </div>
     <div class="right-box">
-      <div class="box">
-        <h2>{{ slide_title }}</h2>
-        <ul>
-          <li>{{ content1 }}</li>
-          <li>{{ content2 }}</li>
-        </ul>
+      <!-- Upper box for description -->
+      <div class="description-box">
+        {{ description }} <!-- Text from the backend -->
       </div>
-      <div class="middle-boxes">
-        <div class="box half-box">
-          <h3>{{ diagram_description }}</h3>
-          <!-- Content for diagram description -->
-        </div>
-        <div class="box half-box">
-          <h3>{{ new_content }}</h3>
-          <!-- Content for new content explanation -->
-        </div>
-      </div>
-      <div class="input-row">
-        <div class="input-box">
-          <form action="/save-text-page2" method="post">
-            <label for="inputDetail">User provides input on level of detail:</label>
-            <input type="text" id="inputDetail" name="input-detail">
-            <!-- Include a Save button here if needed -->
-          </form>
-        </div>
-        <div class="input-box">
-          <form action="/save-text-page2" method="post">
-            <label for="inputSpecs">Input and output specifications?</label>
-            <input type="text" id="inputSpecs" name="input-specs">
-            <!-- Include a Save button here if needed -->
-          </form>
-        </div>
-      </div>
-      <div class="box">
-        <button type="submit" form="form1">Save</button>
+      <!-- Lower box for editable content -->
+      <div class="editable-box">
+        <form action="{{ url_for('handle_editable_content') }}" method="post">
+          <textarea name="editable-content" rows="10" cols="50">{{ editable_content }}</textarea>
+          <button type="submit">Save</button>
+        </form>
       </div>
     </div>
   </div>

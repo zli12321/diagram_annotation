@@ -7,3 +7,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+// Zoom functionality in script.js
+// Initialize scale variable
+let scale = 1;
+
+// Make sure to include these functions in your script.js or within a <script> tag in your HTML
+function zoomIn() {
+  scale += 0.1;
+  document.getElementById('diagram-img').style.transform = `scale(${scale})`;
+}
+
+function zoomOut() {
+  scale = Math.max(1, scale - 0.1);
+  document.getElementById('diagram-img').style.transform = `scale(${scale})`;
+}
+

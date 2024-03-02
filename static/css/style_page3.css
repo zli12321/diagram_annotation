@@ -1,0 +1,73 @@
+/* style_page3.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    height: 100%;
+  }
+  
+  .left-box {
+    flex: 1;
+    background-color: yellow; /* Example color */
+    padding: 10px;
+  }
+  
+  .right-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .description-box, .answers-box, .input-fields {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd; /* Light grey border */
+    background-color: #f0f0f0; /* Light grey background */
+  }
+  
+  .description-box {
+    background-color: #ffff99; /* Light yellow background for description */
+  }
+  
+  .answers-box {
+    background-color: #afeeee; /* Light blue background for LLM output */
+  }
+  
+  .input-fields {
+    background-color: #add8e6; /* Lighter blue background for user input fields */
+  }
+  
+  .input-fields form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-fields label {
+    margin-top: 10px;
+  }
+  
+  .input-fields input[type="text"] {
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    width: 100px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  

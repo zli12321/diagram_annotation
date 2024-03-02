@@ -1,45 +1,36 @@
-/* style_page2.css */
 .container {
     display: flex;
+    height: 100vh; /* Full height of the viewport */
   }
   
   .left-box {
-    flex: 2;
+    flex: 2; /* Takes up twice as much space as each right box */
     background-color: yellow;
-    margin: 10px;
     padding: 10px;
   }
   
   .right-box {
-    flex: 2;
+    flex: 1; /* Takes up half as much space as the left box */
     display: flex;
     flex-direction: column;
-    margin: 10px;
-  }
-  
-  .box {
-    border: 2px solid black;
-    margin-bottom: 10px; /* Only bottom margin to stack them vertically */
     padding: 10px;
-    background-color: lightyellow;
   }
   
-  .middle-boxes {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .half-box {
-    flex: 1;
-    margin-right: 10px;
-  }
-  
-  .half-box:last-child {
-    margin-right: 0;
-  }
-  
-  .input-box {
+  .description-box, .editable-box {
+    flex: 1; /* Each takes up half the space in the flex-direction column */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid black;
     background-color: lightblue;
+  }
+  
+  .editable-box {
+    flex-grow: 2; /* Allows the editable box to grow larger than the description box */
+  }
+  
+  textarea {
+    width: 100%; /* Makes the textarea fill its container */
+    height: 150px; /* Fixed height for textarea */
   }
   
   button {
@@ -47,19 +38,3 @@
     margin-top: 10px;
   }
   
-  .input-row {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .input-box {
-    flex: 1;
-    margin-right: 10px;
-    background-color: lightblue;
-    border: 2px solid black;
-    padding: 10px;
-  }
-  
-  .input-box:last-child {
-    margin-right: 0;
-  }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Page 4</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style_page4.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="column pdf-viewer">
+      <!-- PDF Viewer -->
+      <iframe src="{{ url_for('serve_pdf', filename=pdf_filename) }}" width="100%" height="100%" type="application/pdf"></iframe>
+    </div>
+    <div class="column description-column">
+      <!-- Diagram Description Title -->
+      <div class="title">
+        <h1>Diagram 1 (Description)</h1>
+      </div>
+      <!-- Textual Description -->
+      <div class="description-box">
+        <p>{{ textual_description }}</p>
+      </div>
+      <!-- Code Display -->
+      <div class="code-box">
+        <pre>{{ code_content }}</pre>
+      </div>
+      <!-- Generated Diagram Image -->
+      <div class="diagram-box">
+        <img id="diagram-img" src="{{ url_for('static', filename=image_path) }}" alt="Generated Diagram" style="transform: scale(1);">
+      </div>
+      <div class="zoom-controls">
+        <button onclick="zoomIn()">Zoom In</button>
+        <button onclick="zoomOut()">Zoom Out</button>
+      </div>
+    </div>
+    <div class="column feedback-column">
+      <!-- User Input for Feedback -->
+      <form id="feedback-form" action="{{ url_for('handle_feedback') }}" method="post">
+        <div class="feedback-input">
+          <label for="correctness">Correctness Feedback:</label>
+          <input type="text" id="correctness" name="correctness">
+        </div>
+        <div class="feedback-input">
+          <label for="completeness">Completeness Feedback:</label>
+          <input type="text" id="completeness" name="completeness">
+        </div>
+        <div class="feedback-input">
+          <label for="layout">Layout Feedback:</label>
+          <input type="text" id="layout" name="layout">
+        </div>
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button type="submit" form="feedback-form" name="action" value="save">Save</button>
+          <button type="submit" form="feedback-form" name="action" value="regenerate">Regenerate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
